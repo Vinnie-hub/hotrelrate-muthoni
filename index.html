@@ -4,1316 +4,261 @@
     <meta charset="UTF-8" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
-    <title>MULASTAR | Assessment</title>
+      content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>HotelRate | Review hotels and get paid per approved review</title>
+    <meta
+      name="description"
+      content="HotelRate is a hotel ratings and reviews platform powered by MulaEarn. Explore hotels, rate them, and share your feedback. Eligible members can earn commissions for submitting approved hotel reviews." />
+    <meta name="theme-color" content="#14213d" />
+    <link rel="icon" type="image/webp" href="assets/favicon-192.webp" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-    />
-    <style>
-      :root {
-        --primary-color: #2c3e50;
-        --secondary-color: #3498db;
-        --accent-color: #2ecc71;
-        --danger-color: #e74c3c;
-        --warning-color: #f39c12;
-        --light-color: #f8f9fa;
-        --dark-color: #2c3e50;
-        --border-radius: 12px;
-        --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        --mobile-padding: 12px;
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        -webkit-tap-highlight-color: transparent;
-      }
-
-      html {
-        font-size: 16px;
-        scroll-behavior: smooth;
-      }
-
-      body {
-        font-family:
-          "Inter",
-          -apple-system,
-          BlinkMacSystemFont,
-          "Segoe UI",
-          Roboto,
-          Oxygen,
-          Ubuntu,
-          sans-serif;
-        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-        color: #333;
-        line-height: 1.5;
-        min-height: 100vh;
-        padding: var(--mobile-padding);
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-
-      .professional-container {
-        max-width: 100%;
-        margin: 0 auto;
-        background: white;
-        border-radius: var(--border-radius);
-        box-shadow: var(--box-shadow);
-        overflow: hidden;
-        min-height: calc(100vh - 2 * var(--mobile-padding));
-        display: flex;
-        flex-direction: column;
-      }
-
-      /* Header - Mobile Optimized - SMALLER */
-      .dashboard-header {
-        background: linear-gradient(
-          135deg,
-          var(--primary-color) 0%,
-          #1a2530 100%
-        );
-        color: white;
-        padding: 12px var(--mobile-padding);
-        position: relative;
-        flex-shrink: 0;
-      }
-
-      .mobile-header-top {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .branding {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .logo {
-        width: 36px;
-        height: 36px;
-        background: var(--accent-color);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 18px;
-        font-weight: 800;
-        flex-shrink: 0;
-      }
-
-      .branding-text h1 {
-        font-size: 18px;
-        font-weight: 700;
-        margin-bottom: 2px;
-        line-height: 1.2;
-      }
-
-      .branding-text p {
-        font-size: 11px;
-        opacity: 0.9;
-      }
-
-      .timer-display-mobile {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-
-      .timer-icon {
-        color: var(--danger-color);
-        font-size: 16px;
-      }
-
-      .timer {
-        font-size: 16px;
-        font-weight: 700;
-        color: var(--danger-color);
-        background: white;
-        padding: 4px 12px;
-        border-radius: 50px;
-        border: 2px solid var(--danger-color);
-        min-width: 70px;
-        text-align: center;
-      }
-
-      /* Questions Container - Better mobile fit */
-      .questions-container {
-        padding: 12px var(--mobile-padding);
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-        flex: 1;
-        max-height: calc(100vh - 160px);
-      }
-
-      /* Question Cards */
-      .question-card-mobile {
-        background: white;
-        border-radius: var(--border-radius);
-        padding: 16px;
-        margin-bottom: 16px;
-        border: 1px solid #eaeaea;
-        transition: var(--transition);
-      }
-
-      .question-card-mobile:last-child {
-        margin-bottom: 70px;
-      }
-
-      .question-header-mobile {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        margin-bottom: 12px;
-        padding-bottom: 10px;
-        border-bottom: 1px solid #f0f0f0;
-      }
-
-      .question-meta-mobile {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        flex-wrap: wrap;
-      }
-
-      .question-number-mobile {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 28px;
-        height: 28px;
-        background: var(--primary-color);
-        color: white;
-        border-radius: 50%;
-        font-weight: 700;
-        font-size: 13px;
-      }
-
-      .question-value-mobile {
-        background: linear-gradient(90deg, #f39c12, #e67e22);
-        color: white;
-        padding: 4px 10px;
-        border-radius: 50px;
-        font-weight: 700;
-        font-size: 11px;
-        display: flex;
-        align-items: center;
-        gap: 4px;
-      }
-
-      /* QUESTION TEXT */
-      .question-text-mobile {
-        font-size: 15px;
-        font-weight: 600;
-        color: var(--dark-color);
-        margin-bottom: 16px;
-        line-height: 1.4;
-        padding-bottom: 10px;
-        border-bottom: 1px solid #f0f0f0;
-      }
-
-      /* OPTIONS */
-      .options-container-mobile {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        margin-bottom: 12px;
-      }
-
-      .option-item-mobile {
-        display: flex;
-        align-items: center;
-        padding: 10px 0;
-        border-bottom: 1px solid #f0f0f0;
-        cursor: pointer;
-        transition: var(--transition);
-      }
-
-      .option-item-mobile:last-child {
-        border-bottom: none;
-      }
-
-      .option-item-mobile:hover {
-        background-color: #f8fafc;
-      }
-
-      /* CHECKBOX STYLING */
-      .checkbox-container {
-        display: flex;
-        align-items: center;
-        width: 100%;
-      }
-
-      .checkbox-input {
-        display: none;
-      }
-
-      .checkbox-custom {
-        width: 18px;
-        height: 18px;
-        border: 2px solid #ddd;
-        border-radius: 4px;
-        margin-right: 10px;
-        position: relative;
-        flex-shrink: 0;
-        transition: var(--transition);
-      }
-
-      .checkbox-input:checked + .checkbox-custom {
-        background-color: var(--secondary-color);
-        border-color: var(--secondary-color);
-      }
-
-      .checkbox-input:checked + .checkbox-custom::after {
-        content: "✓";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: white;
-        font-size: 11px;
-        font-weight: bold;
-      }
-
-      .option-letter-mobile {
-        font-weight: 600;
-        margin-right: 6px;
-        color: var(--primary-color);
-        min-width: 18px;
-        font-size: 14px;
-      }
-
-      .option-text-mobile {
-        font-size: 14px;
-        flex-grow: 1;
-        line-height: 1.4;
-        color: #333;
-      }
-
-      .option-item-mobile.selected .checkbox-custom {
-        background-color: var(--secondary-color);
-        border-color: var(--secondary-color);
-      }
-
-      .option-item-mobile.selected .checkbox-custom::after {
-        content: "✓";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: white;
-        font-size: 11px;
-        font-weight: bold;
-      }
-
-      .option-item-mobile.correct .checkbox-custom {
-        background-color: var(--accent-color);
-        border-color: var(--accent-color);
-      }
-
-      .option-item-mobile.incorrect .checkbox-custom {
-        background-color: var(--danger-color);
-        border-color: var(--danger-color);
-      }
-
-      .feedback-box-mobile {
-        margin-top: 10px;
-        padding: 10px;
-        border-radius: 6px;
-        font-size: 13px;
-        display: none;
-        animation: fadeIn 0.5s ease;
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(-5px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .feedback-correct {
-        background: #d4edda;
-        color: #155724;
-        border-left: 4px solid var(--accent-color);
-      }
-
-      .feedback-incorrect {
-        background: #f8d7da;
-        color: #721c24;
-        border-left: 4px solid var(--danger-color);
-      }
-
-      /* Submit Button - Smaller */
-      .survey-navigation-mobile {
-        padding: 12px var(--mobile-padding);
-        border-top: 1px solid #eaeaea;
-        background: #f8f9fa;
-        position: fixed;
-        bottom: var(--mobile-padding);
-        left: var(--mobile-padding);
-        right: var(--mobile-padding);
-        z-index: 1000;
-        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-        border-radius: var(--border-radius);
-        margin: 0;
-      }
-
-      .nav-buttons-container {
-        display: flex;
-        justify-content: center;
-      }
-
-      .nav-button-mobile {
-        padding: 12px 20px;
-        border: none;
-        border-radius: var(--border-radius);
-        font-size: 14px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: var(--transition);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 6px;
-        min-height: 42px;
-        flex: 1;
-      }
-
-      .nav-button-mobile:active {
-        transform: scale(0.98);
-      }
-
-      .nav-button-mobile:disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
-      }
-
-      .button-outline-mobile {
-        background: transparent;
-        border: 2px solid var(--secondary-color);
-        color: var(--secondary-color);
-      }
-
-      .button-outline-mobile:active:not(:disabled) {
-        background: var(--secondary-color);
-        color: white;
-      }
-
-      .button-primary-mobile {
-        background: var(--secondary-color);
-        color: white;
-        border: 2px solid var(--secondary-color);
-      }
-
-      .button-primary-mobile:active:not(:disabled) {
-        background: #2980b9;
-        border-color: #2980b9;
-      }
-
-      .button-success-mobile {
-        background: var(--accent-color);
-        color: white;
-        border: 2px solid var(--accent-color);
-        flex: 1;
-      }
-
-      .button-success-mobile:active:not(:disabled) {
-        background: #27ae60;
-        border-color: #27ae60;
-      }
-
-      /* Results Dashboard */
-      .results-dashboard-mobile {
-        padding: 16px var(--mobile-padding);
-        display: none;
-        flex: 1;
-        overflow-y: auto;
-      }
-
-      .dashboard-header-results-mobile {
-        text-align: center;
-        margin-bottom: 24px;
-      }
-
-      .dashboard-header-results-mobile h2 {
-        font-size: 20px;
-        color: var(--primary-color);
-        margin-bottom: 8px;
-      }
-
-      .dashboard-header-results-mobile p {
-        color: #666;
-        font-size: 14px;
-      }
-
-      .earnings-card-mobile {
-        background: linear-gradient(135deg, #2ecc71, #27ae60);
-        color: white;
-        border-radius: var(--border-radius);
-        padding: 20px 16px;
-        margin-bottom: 20px;
-        text-align: center;
-        box-shadow: 0 8px 20px rgba(46, 204, 113, 0.3);
-      }
-
-      .earnings-label-mobile {
-        font-size: 14px;
-        margin-bottom: 8px;
-        opacity: 0.9;
-      }
-
-      .earnings-amount-mobile {
-        font-size: 36px;
-        font-weight: 800;
-        margin-bottom: 8px;
-      }
-
-      .earnings-details-mobile {
-        font-size: 12px;
-        opacity: 0.9;
-      }
-
-      .score-breakdown-mobile {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
-        margin-bottom: 24px;
-      }
-
-      .breakdown-card-mobile {
-        background: white;
-        border-radius: var(--border-radius);
-        padding: 16px 10px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        text-align: center;
-        border-top: 4px solid var(--secondary-color);
-      }
-
-      .breakdown-card-mobile.correct {
-        border-top-color: var(--accent-color);
-      }
-
-      .breakdown-card-mobile.incorrect {
-        border-top-color: var(--danger-color);
-      }
-
-      .breakdown-card-mobile.earned {
-        border-top-color: var(--warning-color);
-      }
-
-      .breakdown-icon-mobile {
-        font-size: 24px;
-        margin-bottom: 8px;
-        color: var(--secondary-color);
-      }
-
-      .breakdown-card-mobile.correct .breakdown-icon-mobile {
-        color: var(--accent-color);
-      }
-
-      .breakdown-card-mobile.incorrect .breakdown-icon-mobile {
-        color: var(--danger-color);
-      }
-
-      .breakdown-card-mobile.earned .breakdown-icon-mobile {
-        color: var(--warning-color);
-      }
-
-      .breakdown-value-mobile {
-        font-size: 22px;
-        font-weight: 800;
-        margin-bottom: 4px;
-      }
-
-      .breakdown-label-mobile {
-        font-size: 11px;
-        color: #666;
-      }
-
-      .welcome-message-mobile {
-        background: linear-gradient(135deg, #e3f2fd, #bbdefb);
-        border-radius: var(--border-radius);
-        padding: 16px;
-        margin: 20px 0;
-        display: none;
-        animation: fadeIn 1s ease;
-        border-left: 5px solid var(--secondary-color);
-      }
-
-      .welcome-header-mobile {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        margin-bottom: 8px;
-      }
-
-      .welcome-icon-mobile {
-        font-size: 22px;
-        color: var(--secondary-color);
-      }
-
-      .welcome-message-mobile h3 {
-        font-size: 18px;
-        color: var(--primary-color);
-      }
-
-      .welcome-message-mobile p {
-        font-size: 14px;
-        color: #2c3e50;
-        line-height: 1.5;
-      }
-
-      .action-buttons-mobile {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        margin-top: 24px;
-      }
-
-      .button-icon-mobile {
-        margin-right: 6px;
-      }
-
-      /* Mobile Scrollbar */
-      .questions-container::-webkit-scrollbar,
-      .results-dashboard-mobile::-webkit-scrollbar {
-        width: 3px;
-      }
-
-      .questions-container::-webkit-scrollbar-track,
-      .results-dashboard-mobile::-webkit-scrollbar-track {
-        background: #f1f1f1;
-        border-radius: 10px;
-      }
-
-      .questions-container::-webkit-scrollbar-thumb,
-      .results-dashboard-mobile::-webkit-scrollbar-thumb {
-        background: #c1c1c1;
-        border-radius: 10px;
-      }
-
-      /* Tablet and Desktop Responsive */
-      @media (min-width: 768px) {
-        :root {
-          --mobile-padding: 16px;
-        }
-
-        body {
-          padding: 16px;
-        }
-
-        .professional-container {
-          max-width: 800px;
-          margin: 0 auto;
-        }
-
-        .dashboard-header {
-          padding: 16px 20px;
-        }
-
-        .branding-text h1 {
-          font-size: 20px;
-        }
-
-        .question-text-mobile {
-          font-size: 16px;
-        }
-
-        .nav-buttons-container {
-          max-width: 400px;
-          margin: 0 auto;
-        }
-      }
-
-      /* Small Phone Optimization */
-      @media (max-width: 360px) {
-        :root {
-          --mobile-padding: 10px;
-        }
-
-        html {
-          font-size: 15px;
-        }
-
-        .logo {
-          width: 32px;
-          height: 32px;
-          font-size: 16px;
-        }
-
-        .branding-text h1 {
-          font-size: 16px;
-        }
-
-        .branding-text p {
-          font-size: 10px;
-        }
-
-        .timer {
-          font-size: 14px;
-          min-width: 60px;
-          padding: 3px 8px;
-        }
-
-        .question-text-mobile {
-          font-size: 14px;
-        }
-
-        .option-text-mobile {
-          font-size: 13px;
-        }
-
-        .nav-button-mobile {
-          padding: 10px 16px;
-          font-size: 13px;
-          min-height: 38px;
-        }
-      }
-
-      /* Safe area for notched phones */
-      @supports (padding: max(0px)) {
-        body {
-          padding-left: max(var(--mobile-padding), env(safe-area-inset-left));
-          padding-right: max(var(--mobile-padding), env(safe-area-inset-right));
-          padding-top: max(var(--mobile-padding), env(safe-area-inset-top));
-          padding-bottom: max(
-            var(--mobile-padding),
-            env(safe-area-inset-bottom)
-          );
-        }
-
-        .survey-navigation-mobile {
-          bottom: max(var(--mobile-padding), env(safe-area-inset-bottom));
-          left: max(var(--mobile-padding), env(safe-area-inset-left));
-          right: max(var(--mobile-padding), env(safe-area-inset-right));
-        }
-      }
-    </style>
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="manifest" href="manifest.json" />
   </head>
   <body>
-    <div class="professional-container">
-      <!-- Smaller Mobile Header -->
-      <header class="dashboard-header">
-        <div class="mobile-header-top">
-          <div class="branding">
-            <div class="logo">M</div>
-            <div class="branding-text">
-              <h1>MULASTAR</h1>
-              <p>Assessment</p>
+    <header class="header">
+      <div class="wrap bar">
+        <a class="logo" href="#top" aria-label="HotelRate home">
+          <img
+            class="logo-img"
+            src="assets/hotel%20review%20logo.webp"
+            alt="HotelRate"
+            width="150"
+            height="50" />
+        </a>
+        <nav class="nav" id="nav" aria-label="Main">
+          <a class="nav-link" href="#how-it-works">How it works</a>
+          <a class="nav-link" href="#hotels">Hotels</a>
+          <button class="btn btn-gold js-register" type="button">
+            REGISTER
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="wrap hero-grid">
+          <div class="hero-copy">
+            <p class="kicker">#1 Hotel Review Platform</p>
+            <h1>
+              Stay curious. <em>Review the world&rsquo;s finest hotels.</em>
+            </h1>
+            <p class="lede">
+              Explore hotel rooms, interiors and dining experiences, then share
+              your insights through a review. HotelRate is powered by MulaEarn,
+              where eligible members earn for every approved review.
+            </p>
+            <div class="actions">
+              <button class="btn btn-gold js-register" type="button">
+                Register
+              </button>
+              <a class="btn btn-ghost" href="#hotels">Browse hotels</a>
             </div>
+            <ul class="terms" aria-label="Key terms">
+              <li><b>$4</b><span>one-time activation fee</span></li>
+              <li><b>⭐</b><span>Share your reviews</span></li>
+              <li><b>$5&ndash;$20</b><span>per approved review</span></li>
+            </ul>
           </div>
-          <div class="timer-display-mobile">
-            <i class="fas fa-clock timer-icon"></i>
-            <div class="timer" id="timer">03:00</div>
-          </div>
-        </div>
-      </header>
-
-      <!-- Questions Container -->
-      <main class="questions-container" id="questionsContainer"></main>
-
-      <!-- Submit Button -->
-      <section class="survey-navigation-mobile">
-        <div class="nav-buttons-container">
-          <button
-            class="nav-button-mobile button-success-mobile"
-            id="submitBtn"
-            disabled
-          >
-            <i class="fas fa-paper-plane button-icon-mobile"></i>
-            <span class="button-text">Submit Assessment</span>
-          </button>
+          <figure class="hero-art">
+            <img
+              class="hero-img"
+              src="assets/hotelrate-hero.webp"
+              alt="A smiling woman writing a hotel review on her laptop beside a pool, with the HotelRate and MulaEarn logos"
+              width="1672"
+              height="941"
+              fetchpriority="high" />
+          </figure>
         </div>
       </section>
 
-      <!-- Results Dashboard -->
-      <section class="results-dashboard-mobile" id="resultsDashboard">
-        <div class="dashboard-header-results-mobile">
-          <h2>Assessment Completed</h2>
-          <p>Your results are ready</p>
-        </div>
-
-        <div class="earnings-card-mobile">
-          <div class="earnings-label-mobile">Total Earnings</div>
-          <div class="earnings-amount-mobile" id="earningsAmount">KSH 0</div>
-          <div class="earnings-details-mobile">
-            <span id="correctCount">0</span> correct answers at KSH 10 each
+      <section class="section" id="hotels">
+        <div class="wrap">
+          <div class="head">
+            <h2>Hotels Ready for Your Review</h2>
+            <p>Explore available hotels and start reviewing to earn.</p>
           </div>
-        </div>
-
-        <div class="welcome-message-mobile" id="welcomeMessage">
-          <div class="welcome-header-mobile">
-            <i class="fas fa-handshake welcome-icon-mobile"></i>
-            <h3>Welcome Back!</h3>
-          </div>
-          <p>
-            Great to see you again! Your commitment to professional growth is
-            impressive. Keep up the excellent work.
-          </p>
-        </div>
-
-        <div class="score-breakdown-mobile">
-          <div class="breakdown-card-mobile correct">
-            <i class="fas fa-check-circle breakdown-icon-mobile"></i>
-            <div class="breakdown-value-mobile" id="correctDisplay">0</div>
-            <div class="breakdown-label-mobile">Correct</div>
-          </div>
-          <div class="breakdown-card-mobile incorrect">
-            <i class="fas fa-times-circle breakdown-icon-mobile"></i>
-            <div class="breakdown-value-mobile" id="incorrectDisplay">0</div>
-            <div class="breakdown-label-mobile">Incorrect</div>
-          </div>
-          <div class="breakdown-card-mobile earned">
-            <i class="fas fa-chart-line breakdown-icon-mobile"></i>
-            <div class="breakdown-value-mobile" id="percentageDisplay">0%</div>
-            <div class="breakdown-label-mobile">Success Rate</div>
-          </div>
-        </div>
-
-        <div class="action-buttons-mobile">
-          <button
-            class="nav-button-mobile button-outline-mobile"
-            id="reviewBtn"
+          <div class="grid" id="grid" aria-live="off"></div>
+          <noscript
+            ><p class="noscript">
+              Turn on JavaScript to see the sample hotels, or register directly
+              on
+              <a href="https://mulaearn.com/register.php?ref=muthoni23">MulaEarn</a
+              >.
+            </p></noscript
           >
-            <i class="fas fa-eye button-icon-mobile"></i>
-            <span class="button-text">Review Answers</span>
-          </button>
-          <button
-            class="nav-button-mobile button-primary-mobile"
-            id="restartBtn"
-          >
-            <i class="fas fa-redo button-icon-mobile"></i>
-            <span class="button-text">Retake Assessment</span>
-          </button>
+          <div class="rot">
+            <button
+              class="pager"
+              id="prev"
+              type="button"
+              aria-label="Previous hotels">
+              <svg
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M15 5l-7 7 7 7" />
+              </svg>
+            </button>
+            <div
+              class="dots"
+              id="dots"
+              role="group"
+              aria-label="Choose a selection"></div>
+            <button
+              class="pager"
+              id="next"
+              type="button"
+              aria-label="Next hotels">
+              <svg
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+          <div class="explore">
+            <button class="btn btn-gold js-register" type="button">
+              Register to explore all hotels
+            </button>
+          </div>
         </div>
       </section>
+      <!-- HOW IT WORKS -->
+      <section class="section section-alt" id="how-it-works">
+        <div class="wrap">
+          <div class="head">
+            <h2>How HotelRate works</h2>
+            <p>Three steps from sign-up to your first payout</p>
+          </div>
+          <ol class="steps">
+            <li class="step">
+              <span class="step-no" aria-hidden="true">1</span>
+              <h3>Create your account</h3>
+              <p>
+                Sign up on MulaEarn with your username, phone number and email,
+                then pay the activation fee.
+              </p>
+              <p class="step-note">$4, one-time activation fee.</p>
+            </li>
+            <li class="step">
+              <span class="step-no" aria-hidden="true">2</span>
+              <h3>Browse hotels</h3>
+              <p>
+                Look through the hotels on offer and see what each one involves
+                before you pick.
+              </p>
+              <p class="step-note">Pay shown on every listing</p>
+            </li>
+            <li class="step">
+              <span class="step-no" aria-hidden="true">3</span>
+              <h3>Review and earn</h3>
+              <p>
+                Write your reviews honestly. Each approved review earns $5 to
+                $20, withdrawn to M&#8209;Pesa.
+              </p>
+              <p class="step-note">Paid per approved review</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap foot">
+        <span
+          >&copy; <span id="year"></span> HotelRate. Powered by MulaEarn. All
+          rights reserved.</span
+        >
+      </div>
+    </footer>
+
+    <div class="fab-stack">
+      <div class="install-tip" id="installTip" role="status" hidden>
+        <b>Install HotelRate</b>
+        <span
+          >Tap the Share button in Safari, then choose &ldquo;Add to Home
+          Screen&rdquo;.</span
+        >
+      </div>
+      <button class="install-btn" id="installBtn" type="button" hidden>
+        <svg
+          viewBox="0 0 24 24"
+          width="20"
+          height="20"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true">
+          <path d="M12 3v12m0 0l-4-4m4 4l4-4M5 20h14" />
+        </svg>
+        Install app
+      </button>
+      <div class="float-wa-container">
+        <span class="float-wa-label" id="wa-label"
+          >Follow HotelRate Updates</span
+        >
+        <a
+          class="channelBtn float"
+          href="https://whatsapp.com/channel/0029VbD0NZf0VycJyk85mq16"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Follow HotelRate Whatsapp Channel"
+          aria-describedby="wa-label"></a>
+      </div>
     </div>
 
+    <div class="modal-back" id="modal" hidden>
+      <div
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="mTitle">
+        <button class="close" id="close" type="button" aria-label="Close">
+          &times;
+        </button>
+        <h2 id="mTitle">Registration process</h2>
+        <p class="mlead" id="mHotel"></p>
+        <ol class="regsteps compact" id="mSteps"></ol>
+        <a
+          class="btn btn-gold block"
+          href="https://mulaearn.com/register.php?ref=muthoni23"
+          target="_blank"
+          rel="noopener"
+          >Continue to Register</a
+        >
+      </div>
+    </div>
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
     <script>
-      // Configuration
-      const CONFIG = {
-        QUESTION_VALUE: 10,
-        TOTAL_QUESTIONS: 10,
-        TIME_LIMIT: 180,
-        STORAGE_KEY: "mulastar_assessment",
-      };
-
-      // Survey questions
-      const surveyQuestions = [
-        {
-          id: 1,
-          category: "mental",
-          question:
-            "What is the most effective approach to handling failure professionally?",
-          options: [
-            { letter: "A", text: "Give up and move on", correct: false },
-            { letter: "B", text: "Learn and try again", correct: true },
-            { letter: "C", text: "Blame others", correct: false },
-            { letter: "D", text: "Ignore it", correct: false },
-          ],
-          feedback: {
-            correct: "Correct. Learning from failure builds resilience.",
-            incorrect:
-              "The best approach is to learn from failure and try again.",
-          },
-        },
-        {
-          id: 2,
-          category: "mental",
-          question: "A positive mindset helps you to…",
-          options: [
-            { letter: "A", text: "Stay stagnant", correct: false },
-            { letter: "B", text: "Grow and improve", correct: true },
-            { letter: "C", text: "Avoid challenges", correct: false },
-            { letter: "D", text: "Stop learning", correct: false },
-          ],
-          feedback: {
-            correct:
-              "Right! A positive mindset encourages continuous improvement.",
-            incorrect:
-              "A positive mindset actually helps you grow and improve.",
-          },
-        },
-        {
-          id: 3,
-          category: "mental",
-          question: "What is gratitude?",
-          options: [
-            { letter: "A", text: "Complaining", correct: false },
-            { letter: "B", text: "Being thankful", correct: true },
-            { letter: "C", text: "Comparing to others", correct: false },
-            { letter: "D", text: "Feeling angry", correct: false },
-          ],
-          feedback: {
-            correct: "Exactly! Gratitude is appreciating what you have.",
-            incorrect: "Gratitude means being thankful for what you have.",
-          },
-        },
-        {
-          id: 4,
-          category: "general",
-          question: "Who is Africa's longest serving leader?",
-          options: [
-            { letter: "A", text: "Jomo Kenyatta of Kenya", correct: false },
-            {
-              letter: "B",
-              text: "Nelson Mandela of South Africa",
-              correct: false,
-            },
-            { letter: "C", text: "Robert Mugabe of Zimbabwe", correct: false },
-            {
-              letter: "D",
-              text: "Teodoro Obiang of Equatorial Guinea",
-              correct: true,
-            },
-          ],
-          feedback: {
-            correct: "Correct. Teodoro Obiang has been in power since 1979.",
-            incorrect:
-              "Incorrect. Teodoro Obiang is Africa's longest serving leader.",
-          },
-        },
-        {
-          id: 5,
-          category: "general",
-          question: "Which is the current education system in Kenya?",
-          options: [
-            { letter: "A", text: "2-4-4-3-3", correct: false },
-            { letter: "B", text: "7-5-3", correct: false },
-            { letter: "C", text: "8-4-4", correct: false },
-            { letter: "D", text: "8-5-4", correct: true },
-          ],
-          feedback: {
-            correct: "Correct. Kenya uses the 8-5-4 education system.",
-            incorrect: "Incorrect. Kenya uses the 8-5-4 education system.",
-          },
-        },
-        {
-          id: 6,
-          category: "general",
-          question: "The study of earthquakes and the waves generated by them",
-          options: [
-            { letter: "A", text: "Seismology", correct: true },
-            { letter: "B", text: "All of the above", correct: false },
-            { letter: "C", text: "Geomorphology", correct: false },
-            { letter: "D", text: "None of the above", correct: false },
-          ],
-          feedback: {
-            correct: "Correct. Seismology is the study of earthquakes.",
-            incorrect: "Incorrect. Seismology is the study of earthquakes.",
-          },
-        },
-        {
-          id: 7,
-          category: "math",
-          question: "What is 12 × 5?",
-          options: [
-            { letter: "A", text: "50", correct: false },
-            { letter: "B", text: "55", correct: false },
-            { letter: "C", text: "60", correct: true },
-            { letter: "D", text: "65", correct: false },
-          ],
-          feedback: {
-            correct: "Correct: 12 × 5 = 60",
-            incorrect: "The correct answer is 60.",
-          },
-        },
-        {
-          id: 8,
-          category: "business",
-          question: "What is profit?",
-          options: [
-            { letter: "A", text: "Money lost", correct: false },
-            { letter: "B", text: "Money after expenses", correct: true },
-            { letter: "C", text: "Total debt", correct: false },
-            { letter: "D", text: "Free money", correct: false },
-          ],
-          feedback: {
-            correct: "Correct. Profit is money earned after expenses.",
-            incorrect: "Profit is money earned after all expenses.",
-          },
-        },
-        {
-          id: 9,
-          category: "business",
-          question: "Who is a customer?",
-          options: [
-            { letter: "A", text: "Buys your product", correct: true },
-            { letter: "B", text: "Steals", correct: false },
-            { letter: "C", text: "Refuses to pay", correct: false },
-            { letter: "D", text: "Sleeps", correct: false },
-          ],
-          feedback: {
-            correct: "Right! A customer purchases your product/service.",
-            incorrect: "A customer is someone who buys your product/service.",
-          },
-        },
-        {
-          id: 10,
-          category: "business",
-          question: "A successful business needs…",
-          options: [
-            { letter: "A", text: "No planning", correct: false },
-            { letter: "B", text: "Good products", correct: true },
-            { letter: "C", text: "Laziness", correct: false },
-            { letter: "D", text: "No customers", correct: false },
-          ],
-          feedback: {
-            correct: "Exactly! Good products and consistency are key.",
-            incorrect: "Success requires good products and consistency.",
-          },
-        },
-      ];
-
-      // Application State
-      const state = {
-        userAnswers: new Array(CONFIG.TOTAL_QUESTIONS).fill(null),
-        timeRemaining: CONFIG.TIME_LIMIT,
-        timerInterval: null,
-        surveyCompleted: false,
-        lastCompletionTimestamp:
-          localStorage.getItem(`${CONFIG.STORAGE_KEY}_last_completion`) || null,
-      };
-
-      // DOM Elements
-      const elements = {
-        questionsContainer: document.getElementById("questionsContainer"),
-        timer: document.getElementById("timer"),
-        submitBtn: document.getElementById("submitBtn"),
-        resultsDashboard: document.getElementById("resultsDashboard"),
-        earningsAmount: document.getElementById("earningsAmount"),
-        correctCount: document.getElementById("correctCount"),
-        correctDisplay: document.getElementById("correctDisplay"),
-        incorrectDisplay: document.getElementById("incorrectDisplay"),
-        percentageDisplay: document.getElementById("percentageDisplay"),
-        welcomeMessage: document.getElementById("welcomeMessage"),
-        reviewBtn: document.getElementById("reviewBtn"),
-        restartBtn: document.getElementById("restartBtn"),
-      };
-
-      // Initialize Application
-      function initApp() {
-        renderAllQuestions();
-        startTimer();
-        checkWelcomeBack();
-        updateSubmitButton();
-      }
-
-      // Render all questions
-      function renderAllQuestions() {
-        let html = "";
-
-        surveyQuestions.forEach((question, index) => {
-          const userAnswer = state.userAnswers[index];
-          let optionsHTML = "";
-
-          question.options.forEach((option) => {
-            const isSelected = userAnswer === option.letter;
-            let optionClass = "option-item-mobile";
-            if (isSelected) optionClass += " selected";
-            if (state.surveyCompleted) {
-              if (option.correct) optionClass += " correct";
-              else if (isSelected && !option.correct)
-                optionClass += " incorrect";
-            }
-
-            optionsHTML += `
-              <div class="${optionClass}" data-letter="${option.letter}" data-question="${index}">
-                <label class="checkbox-container">
-                  <input type="radio" name="question-${question.id}" value="${option.letter}" 
-                    class="checkbox-input" ${isSelected ? "checked" : ""} ${state.surveyCompleted ? "disabled" : ""}>
-                  <div class="checkbox-custom"></div>
-                  <div class="option-letter-mobile">${option.letter}.</div>
-                  <div class="option-text-mobile">${option.text}</div>
-                </label>
-              </div>
-            `;
-          });
-
-          // Feedback if completed
-          let feedbackHTML = "";
-          if (state.surveyCompleted && userAnswer !== null) {
-            const selectedOption = question.options.find(
-              (opt) => opt.letter === userAnswer,
-            );
-            const isCorrect = selectedOption ? selectedOption.correct : false;
-            const feedbackClass = isCorrect
-              ? "feedback-correct"
-              : "feedback-incorrect";
-            const feedbackText = isCorrect
-              ? question.feedback.correct
-              : question.feedback.incorrect;
-            feedbackHTML = `<div class="feedback-box-mobile ${feedbackClass}">${feedbackText}</div>`;
-          }
-
-          html += `
-            <div class="question-card-mobile" id="question-${index}">
-              <div class="question-header-mobile">
-                <div class="question-meta-mobile">
-                  <div class="question-number-mobile">${index + 1}</div>
-                </div>
-                <div class="question-value-mobile">
-                  <i class="fas fa-coins"></i> KSH ${CONFIG.QUESTION_VALUE}
-                </div>
-              </div>
-              <div class="question-text-mobile">${question.question}</div>
-              <div class="options-container-mobile">${optionsHTML}</div>
-              ${feedbackHTML}
-            </div>
-          `;
-        });
-
-        elements.questionsContainer.innerHTML = html;
-
-        // Add event listeners
-        document.querySelectorAll(".option-item-mobile").forEach((option) => {
-          option.addEventListener("click", function () {
-            if (state.surveyCompleted) return;
-
-            const letter = this.getAttribute("data-letter");
-            const questionIndex = parseInt(this.getAttribute("data-question"));
-
-            state.userAnswers[questionIndex] = letter;
-            updateOptionSelection(questionIndex, letter);
-            updateSubmitButton();
-          });
-        });
-      }
-
-      // Update option selection
-      function updateOptionSelection(questionIndex, selectedLetter) {
-        const questionElement = document.getElementById(
-          `question-${questionIndex}`,
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () =>
+          navigator.serviceWorker.register("sw.js").catch(() => {}),
         );
-        const options = questionElement.querySelectorAll(".option-item-mobile");
-
-        options.forEach((opt) => {
-          opt.classList.remove("selected");
-          const letter = opt.getAttribute("data-letter");
-          const radioInput = opt.querySelector(".checkbox-input");
-
-          if (letter === selectedLetter) {
-            opt.classList.add("selected");
-            radioInput.checked = true;
-          } else {
-            radioInput.checked = false;
-          }
-        });
       }
-
-      // Update submit button state
-      function updateSubmitButton() {
-        const allAnswered = state.userAnswers.every(
-          (answer) => answer !== null,
-        );
-        elements.submitBtn.disabled = !allAnswered;
-      }
-
-      // Timer functions
-      function startTimer() {
-        updateTimerDisplay();
-        state.timerInterval = setInterval(() => {
-          state.timeRemaining--;
-          updateTimerDisplay();
-
-          if (state.timeRemaining <= 0) {
-            clearInterval(state.timerInterval);
-            if (!state.surveyCompleted) {
-              autoSubmitAssessment();
-            }
-          }
-        }, 1000);
-      }
-
-      function updateTimerDisplay() {
-        const minutes = Math.floor(state.timeRemaining / 60);
-        const seconds = state.timeRemaining % 60;
-        elements.timer.textContent = `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
-
-        // Visual warning for low time
-        if (state.timeRemaining <= 30) {
-          elements.timer.style.color = "var(--danger-color)";
-          elements.timer.style.borderColor = "var(--danger-color)";
-          if (state.timeRemaining % 2 === 1) {
-            elements.timer.style.boxShadow = "0 0 10px var(--danger-color)";
-          } else {
-            elements.timer.style.boxShadow = "none";
-          }
-        }
-      }
-
-      // Calculate results
-      function calculateResults() {
-        let correct = 0;
-        let incorrect = 0;
-
-        state.userAnswers.forEach((answer, index) => {
-          if (answer !== null) {
-            const question = surveyQuestions[index];
-            const selectedOption = question.options.find(
-              (opt) => opt.letter === answer,
-            );
-            if (selectedOption && selectedOption.correct) {
-              correct++;
-            } else {
-              incorrect++;
-            }
-          } else {
-            incorrect++;
-          }
-        });
-
-        const earnings = correct * CONFIG.QUESTION_VALUE;
-        const percentage = Math.round((correct / CONFIG.TOTAL_QUESTIONS) * 100);
-
-        return { correct, incorrect, earnings, percentage };
-      }
-
-      // Show results
-      function showResults() {
-        state.surveyCompleted = true;
-        clearInterval(state.timerInterval);
-
-        const results = calculateResults();
-
-        // Update results display
-        elements.earningsAmount.textContent = `KSH ${results.earnings}`;
-        elements.correctCount.textContent = results.correct;
-        elements.correctDisplay.textContent = results.correct;
-        elements.incorrectDisplay.textContent = results.incorrect;
-        elements.percentageDisplay.textContent = `${results.percentage}%`;
-
-        // Store completion time
-        localStorage.setItem(
-          `${CONFIG.STORAGE_KEY}_last_completion`,
-          Date.now().toString(),
-        );
-
-        // Re-render questions with feedback
-        renderAllQuestions();
-
-        // Show results dashboard
-        document.querySelector(".questions-container").style.display = "none";
-        document.querySelector(".survey-navigation-mobile").style.display =
-          "none";
-        elements.resultsDashboard.style.display = "block";
-
-        checkWelcomeBack();
-      }
-
-      // Auto-submit
-      function autoSubmitAssessment() {
-        state.userAnswers = state.userAnswers.map((answer) =>
-          answer === null ? "" : answer,
-        );
-        showResults();
-      }
-
-      // Check and show welcome back
-      function checkWelcomeBack() {
-        if (!state.lastCompletionTimestamp) return;
-
-        const oneHourMs = 60 * 60 * 1000;
-        const timeSinceLast =
-          Date.now() - parseInt(state.lastCompletionTimestamp);
-
-        if (timeSinceLast >= oneHourMs) {
-          setTimeout(() => {
-            elements.welcomeMessage.style.display = "block";
-          }, 500);
-        }
-      }
-
-      // Event Listeners
-      elements.submitBtn.addEventListener("click", () => {
-        const allAnswered = state.userAnswers.every(
-          (answer) => answer !== null,
-        );
-
-        if (!allAnswered) {
-          const firstUnansweredIndex = state.userAnswers.findIndex(
-            (answer) => answer === null,
-          );
-          if (firstUnansweredIndex !== -1) {
-            const questionElement = document.getElementById(
-              `question-${firstUnansweredIndex}`,
-            );
-            questionElement.scrollIntoView({
-              behavior: "smooth",
-              block: "center",
-            });
-            questionElement.style.borderColor = "var(--danger-color)";
-            questionElement.style.boxShadow =
-              "0 0 0 2px rgba(231, 76, 60, 0.2)";
-
-            setTimeout(() => {
-              questionElement.style.borderColor = "";
-              questionElement.style.boxShadow = "";
-            }, 2000);
-          }
-          return;
-        }
-
-        showResults();
-      });
-
-      elements.reviewBtn.addEventListener("click", () => {
-        elements.resultsDashboard.style.display = "none";
-        document.querySelector(".questions-container").style.display = "block";
-        document.querySelector(".survey-navigation-mobile").style.display =
-          "flex";
-        elements.questionsContainer.scrollTop = 0;
-      });
-
-      elements.restartBtn.addEventListener("click", () => {
-        state.userAnswers = new Array(CONFIG.TOTAL_QUESTIONS).fill(null);
-        state.timeRemaining = CONFIG.TIME_LIMIT;
-        state.surveyCompleted = false;
-
-        elements.resultsDashboard.style.display = "none";
-        document.querySelector(".questions-container").style.display = "block";
-        document.querySelector(".survey-navigation-mobile").style.display =
-          "flex";
-        elements.welcomeMessage.style.display = "none";
-
-        elements.timer.style.color = "var(--danger-color)";
-        elements.timer.style.borderColor = "var(--danger-color)";
-        elements.timer.style.boxShadow = "none";
-
-        initApp();
-        elements.questionsContainer.scrollTop = 0;
-      });
-
-      // Prevent zoom on double-tap
-      let lastTouchEnd = 0;
-      document.addEventListener(
-        "touchend",
-        function (event) {
-          const now = new Date().getTime();
-          if (now - lastTouchEnd <= 300) {
-            event.preventDefault();
-          }
-          lastTouchEnd = now;
-        },
-        false,
-      );
-
-      // Initialize on load
-      document.addEventListener("DOMContentLoaded", initApp);
     </script>
   </body>
 </html>

@@ -1,1 +1,1 @@
-"# mulastar-survey" 
+"# hotelrate" 
